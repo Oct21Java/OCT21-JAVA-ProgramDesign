@@ -1,0 +1,44 @@
+1. Find the average score
+
+A program is needed to prompt the user operator for ten exam scores, calculate the average score and display the result to the screen. The average score is calculated as the sum of the scores divided by the number of scores.
+
+Answer:
+
+Intitialize COUNTER to 0
+Intitialize SUM to 0
+While COUNTER is less than 10
+	Print "Enter Score : "
+	Input SCORE
+	Add SCORE to SUM
+	Increase COUNTER by 1
+End while
+Set RESULT to the SUM devided by COUNTER  
+Print "The Average Score is "
+Print RESULT
+Feed to newline
+
+
+2. How much water runs off the roof
+
+How much water runs off a roof in a rain storm?
+
+To calculate the runoff from any given rainfall: Take the dimensions of the footprint of the roof and convert them to inches. (So, a 50' x 20' roof is 600" x 240"). Multiply the roof dimensions by the number of inches of rainfall. In this example, 600" x 240" x 1" = 144,000 cubic inches of water. Divide that result by 231 to get the number of gallons (because 1 gallon = 231 cubic inches). (144,000/231 = 623.38).
+
+
+Answer:
+
+Print "Enter roof width (ft) : "
+Input WIDTH
+Print "Enter roof height (ft) : "
+Input HEIGHT
+Print "Enter number of rainfall (inches) : "
+Input RAINFALL
+Multiply WIDTH by 12
+Multiply HEIGHT by 12
+Set AREA to WIDTH multiply by HEIGHT
+Set VOLUMN to AREA multiply by RAINFALL
+Set RUNOFF to VOLUMN divide by 231
+Print "Water runs off is "
+Print RUNOFF
+Print " gallons"
+Feed to newline
