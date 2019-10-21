@@ -20,7 +20,7 @@ Print "Purchase Amount: "
 Input PURCHASE_AMOUNT
 
 If NOT (PURCHASE_AMOUNT is valid_currency)
-	Throw CurrencyCastingError
+Throw CurrencyCastingError
 End If
 
 Print "[ 0=Tax Exempt, 1=State Only(3%), 2=Fed&State(5%), 3=Special (7%) ]"
@@ -31,13 +31,13 @@ Input TAX_CODE
 Initialize TAX to 0
 
 Case TAX_CODE
-	0 : Break
-	1 : Set TAX to PURCHASE_AMOUNT multiply by 0.03
-	2 : Set TAX to PURCHASE_AMOUNT multiply by 0.05
-	3 : Set TAX to PURCHASE_AMOUNT multiply by 0.07
-	DEFAULT: 
-		Print "Incorrect Tax code, please try again"
-		Throw InvalidTaxCodeError
+0 : Break
+1 : Set TAX to PURCHASE_AMOUNT multiply by 0.03
+2 : Set TAX to PURCHASE_AMOUNT multiply by 0.05
+3 : Set TAX to PURCHASE_AMOUNT multiply by 0.07
+DEFAULT: 
+Print "Incorrect Tax code, please try again"
+Throw InvalidTaxCodeError
 EndCase
 
 Set TOTAL to PURCHASE_AMOUNT multiply by TAX
@@ -76,54 +76,53 @@ Print "Employee's Number : "
 Input EMPLOYEE_NUMBER
 
 if NOT (EMPLOYEE_NUMBER is number)
-	Print "Not a number"
-	Throw NumberCastingError
+Print "Not a number"
+Throw NumberCastingError
 End if
 
 If NOT (EMPLOYEE_NUMBER is existed)
-	Print "Employee not existed"
-	Throw InvalidEmployeeNumberError
+Print "Employee not existed"
+Throw InvalidEmployeeNumberError
 End if
 
 Print "Pay Rate (0-25) : "
 Input PAY_RATE
 
 if NOT (PAY_RATE is number)
-	Print "Not a number"
-	Throw NumberCastingError
+Print "Not a number"
+Throw NumberCastingError
 End if
 
 if (PAY_RATE is less than 0) or (PAY_RATE is more than 25)
-	Print PAY_RATE
-	Print " out of range ($0.00 - $25.00)"
-	Throw PayRateOutOfRangeError
+Print PAY_RATE
+Print " out of range ($0.00 - $25.00)"
+Throw PayRateOutOfRangeError
 End if
 
 Print "Number of Hours Worked : "
 Input HOURS
 
 if NOT (HOURS is number)
-	Print "Not a number"
-	Throw NumberCastingError
+Print "Not a number"
+Throw NumberCastingError
 End if
 
 if (HOURS is less than 0) or (HOURS is more than 60)
-	Print HOURS
-	Print " out of range (0.00 - 60.00)"
-	Throw HoursOutOfRangeError
+Print HOURS
+Print " out of range (0.00 - 60.00)"
+Throw HoursOutOfRangeError
 End if
 
 Initialize PAY to 0
 
 If (HOURS greater than 35)
-	Subtract HOURS by 35
-	Multiply HOURS by 1.5
-	Add HOURS by 35
+Subtract HOURS by 35
+Multiply HOURS by 1.5
+Add HOURS by 35
 End if
-	
+
 
 Set PAY_AMOUNT to HOURS multiply by PAY_RATE
 
 Print "The Pay Amount is : "
 Print PAY_AMOUNT
-
