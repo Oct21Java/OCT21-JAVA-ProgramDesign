@@ -1,0 +1,129 @@
+1. Process customer record
+
+A program is required to read a customer's name, a purchase amount and a tax code. 
+
+The tax code has been validated and will be one of the following:
+    0  tax exempt (0%)
+    1  state sales tax only (3%)
+    2  federal and state sales tax (5%)
+    3  special sales tax (7%)
+
+The program must then compute the sales tax and the total amount due,and print the customer's name, purchase amount, sales tax and total amount due.
+
+Answer:
+
+Print "Customer Name: "
+Input CUSTOMER_NAME
+Trim CUSTOMER_NAME to 50 in length
+
+Print "Purchase Amount: "
+Input PURCHASE_AMOUNT
+
+If NOT (PURCHASE_AMOUNT is valid_currency)
+	Throw CurrencyCastingError
+End If
+
+Print "[ 0=Tax Exempt, 1=State Only(3%), 2=Fed&State(5%), 3=Special (7%) ]"
+Feed to newline
+Print "Tax code (0, 1, 2, 3): "
+Input TAX_CODE
+
+Initialize TAX to 0
+
+Case TAX_CODE
+	0 : Break
+	1 : Set TAX to PURCHASE_AMOUNT multiply by 0.03
+	2 : Set TAX to PURCHASE_AMOUNT multiply by 0.05
+	3 : Set TAX to PURCHASE_AMOUNT multiply by 0.07
+	DEFAULT: 
+		Print "Incorrect Tax code, please try again"
+		Throw InvalidTaxCodeError
+EndCase
+
+Set TOTAL to PURCHASE_AMOUNT multiply by TAX
+Add PURCHASE_AMOUNT to TOTAL
+
+Print "Customer's Name : "
+Print CUSTOMER_NAME
+Feed to newline
+
+Print "Purchase Amount : "
+Print PURCHASE_AMOUNT
+Feed to newline
+
+Print "Sale Tax : "
+Print TAX
+Feed to newline
+
+Print "Total Amount Due : "
+Print TOTAL
+Feed to newline
+
+
+
+2. Calculate employee's pay
+A program is required by a company to read an employee's number, pay rate and the number of hours worked in a week. The program is then to validate the pay rate field and the hours worked field and, if valid, compute the employee's weekly pay and then print it and the input data.
+
+Validation: According to the company's rules, the maximum hours an employee can work per week is 60 hours, and the maximum hourly rate is $25.00 per hour. If the hours worked field or the hourly rate field is out of range, the input data and an appropriate message are to be printed and the employee's weekly pay is not to be calculated.
+
+Weekly pay calculation: Weekly pay is calculated as hours worked times pay rate. If more than 35 hours are worked, payment for the overtime hours worked is calculated at time-and-a-half.
+
+
+
+Answer:
+
+Print "Employee's Number : "
+Input EMPLOYEE_NUMBER
+
+if NOT (EMPLOYEE_NUMBER is number)
+	Print "Not a number"
+	Throw NumberCastingError
+End if
+
+If NOT (EMPLOYEE_NUMBER is existed)
+	Print "Employee not existed"
+	Throw InvalidEmployeeNumberError
+End if
+
+Print "Pay Rate (0-25) : "
+Input PAY_RATE
+
+if NOT (PAY_RATE is number)
+	Print "Not a number"
+	Throw NumberCastingError
+End if
+
+if (PAY_RATE is less than 0) or (PAY_RATE is more than 25)
+	Print PAY_RATE
+	Print " out of range ($0.00 - $25.00)"
+	Throw PayRateOutOfRangeError
+End if
+
+Print "Number of Hours Worked : "
+Input HOURS
+
+if NOT (HOURS is number)
+	Print "Not a number"
+	Throw NumberCastingError
+End if
+
+if (HOURS is less than 0) or (HOURS is more than 60)
+	Print HOURS
+	Print " out of range (0.00 - 60.00)"
+	Throw HoursOutOfRangeError
+End if
+
+Initialize PAY to 0
+
+If (HOURS greater than 35)
+	Subtract HOURS by 35
+	Multiply HOURS by 1.5
+	Add HOURS by 35
+End if
+	
+
+Set PAY_AMOUNT to HOURS multiply by PAY_RATE
+
+Print "The Pay Amount is : "
+Print PAY_AMOUNT
+
